@@ -1,0 +1,67 @@
+<p-dataView #dv [value]="properties" [paginator]="true" paginatorPosition="both" filterBy="brand" [loading]="loading"
+    [sortOrder]="sortOrder" [sortField]="sortField" [rows]="10" [lazy]="true" (onLazyLoad)="loadData($event)"
+    [totalRecords]="_total">
+    <p-header> 
+        <div class="ui-helper-clearfix">
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-2">
+                    <p-dropdown [options]="types" [(ngModel)]="type" placeholder="Sort By"
+                        (onChange)="onSortChange($event)" [style]="{'min-width':'140px'}"></p-dropdown>
+                </div>
+                <div class="ui-g-12 ui-md-2">
+                    <p-dropdown [options]="groupedCities"
+                        [(ngModel)]="selectedCity" [style]="{'min-width':'140px'}" placeholder="Select" [group]="true"
+                        [showClear]="false" (onChange)="getProperties()">
+                        <ng-template let-group pTemplate="group">
+                            <span>({{group.value}})</span>
+                            <span style="vertical-align:middle;margin-left:.25em">{{group.label}}</span>
+                        </ng-template>
+                    </p-dropdown>
+                </div>
+                <div class="ui-g-12 ui-md-2 filter-container">
+                    <div style="position:relative">
+                        <input type="search" pInputText placeholder="Search by brand"
+                            (input)="dv.filter($event.target.value)">
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-2">                    
+                    Value > {{yearFilter}}
+                    <i class="pi pi-times" style="cursor:pointer" *ngIf="yearFilter"></i>
+                    <p-slider [style]="{'width':'100%'}" [(ngModel)]="yearFilter" [min]="100" [max]="5000"></p-slider>
+                </div>
+                <div class="ui-g-12 ui-md-2">                    
+               </div>
+                <div class="ui-g-12 ui-md-2" style="text-align:right">
+                    <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+                </div>
+            </div>
+        </div>
+    </p-header>
+    <ng-template let-item pTemplate="listItem">
+        <div class="ui-g-12">
+            <div class="car-details">
+                <div>
+                    <img src="../../../../assets/images/{{item.userId}}/{{item.propertyId}}/01.png"
+                        (error)="defaultUrl($event)" height="120" width="120">
+                    <div class="ui-g">
+                        <div class="ui-g-12">Type: <b>{{item.addressId}}</b></div>
+                        <div class="ui-g-12">Description: <b>{{item.description}}</b></div>
+                    </div>
+                </div>
+                <button pButton type="button" icon="pi pi-search" (click)="selectProperty($event, item)"></button>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template let-item pTemplate="gridItem">
+        <div style="padding:.5em" class="ui-g-12 ui-md-3">
+            <p-panel [header]="item.status" [style]="{'text-align':'center'}">
+                <img src="../../../../assets/images/{{item.userId}}/{{item.propertyId}}/01.png"
+                    (error)="defaultUrl($event)" height="60" width=60>
+                <div class="car-detail">{{item.addressId}} - {{item.description}}</div>
+                <hr class="ui-widget-content" style="border-top:0">
+                <button pButton type="button" icon="pi pi-search" (click)="selectProperty($event, item)"
+                    style="margin-top:0"></button>
+            </p-panel>
+        </div>
+    </ng-template>
+</p-dataView>
