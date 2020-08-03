@@ -18,7 +18,7 @@ namespace DBHandler
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public User User { get; set; }
-        public decimal Prize { get; set; }
+        public decimal Rent { get; set; }
         public int Room { get; set; }
         public virtual ICollection<Image> Images { get; set; }
 

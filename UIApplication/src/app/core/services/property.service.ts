@@ -18,9 +18,9 @@ export class PropertyService {
 
   constructor( private http: HttpClient) {}
 
-  getProperties(typeId:number,cityId: number,prize:number,pageNumber: number, pageSize: number,sortField: string, sortOrder: string): Observable<PagedResponse<Property>> {
+  getProperties(typeId:number,cityId: number,intersection: string,prize:number[],pageNumber: number, pageSize: number,sortField: string, sortOrder: string): Observable<PagedResponse<Property>> {
    // return of(Users);
-   return this.http.get<PagedResponse<Property>>(this.Url + '/GetAllWithImages/'+ typeId + '/' + cityId + '/' + prize + '/' + pageNumber + '/' + pageSize + '/' + sortField + '/' + sortOrder);
+   return this.http.get<PagedResponse<Property>>(this.Url + '/GetAllWithImages/'+ typeId + '/' + cityId + '/' + intersection + '/' + pageNumber + '/' + pageSize + '/' + sortField + '/' + sortOrder + '?rent=' + prize[0] * 50 + '&rent=' + prize[1] * 50);
   // return this.http.get<PagedResponse<Property>>(this.Url );
   }
 

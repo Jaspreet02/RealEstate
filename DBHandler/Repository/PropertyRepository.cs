@@ -16,7 +16,7 @@ namespace DBHandler
 
         public IQueryable<Property> GetAllWithImages(Expression<Func<Property, bool>> predicate)
         {
-            return context.Property.Include("Images").Where(predicate);
+            return context.Property.Include("User").Include("Address.City").Include("Images").Where(predicate);
         }
     }
 }

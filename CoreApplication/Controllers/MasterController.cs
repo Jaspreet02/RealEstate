@@ -12,6 +12,12 @@ namespace RealEstate
         {
         }
 
+        [HttpGet("[action]/{abc:int}")]
+        public IActionResult TestMethod(int abc, [FromQuery(Name = "ids")] int[] ids)
+        {
+            return Ok(ids.Length);
+        }
+
         [HttpGet("[action]")]
         public IActionResult Roles()
         {

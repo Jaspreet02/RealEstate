@@ -22,3 +22,15 @@ E:\projects\RealEstate\DBHandler\obj\Release\netcoreapp3.1\DBHandler.dll
 E:\projects\RealEstate\DBHandler\obj\Release\netcoreapp3.1\DBHandler.pdb
 E:\projects\RealEstate\DBHandler\obj\Release\netcoreapp3.1\DBHandler.genruntimeconfig.cache
 E:\projects\RealEstate\DBHandler\obj\Release\netcoreapp3.1\DBHandler.csprojAssemblyReference.cache
+C:\Project\RentApplication\DBHandler\bin\Release\netcoreapp3.1\DBHandler.deps.json
+C:\Project\RentApplication\DBHandler\bin\Release\netcoreapp3.1\DBHandler.runtimeconfig.json
+C:\Project\RentApplication\DBHandler\bin\Release\netcoreapp3.1\DBHandler.runtimeconfig.dev.json
+C:\Project\RentApplication\DBHandler\bin\Release\netcoreapp3.1\DBHandler.dll
+C:\Project\RentApplication\DBHandler\bin\Release\netcoreapp3.1\DBHandler.pdb
+C:\Project\RentApplication\DBHandler\obj\Release\netcoreapp3.1\DBHandler.csprojAssemblyReference.cache
+C:\Project\RentApplication\DBHandler\obj\Release\netcoreapp3.1\DBHandler.AssemblyInfoInputs.cache
+C:\Project\RentApplication\DBHandler\obj\Release\netcoreapp3.1\DBHandler.AssemblyInfo.cs
+C:\Project\RentApplication\DBHandler\obj\Release\netcoreapp3.1\DBHandler.csproj.CoreCompileInputs.cache
+C:\Project\RentApplication\DBHandler\obj\Release\netcoreapp3.1\DBHandler.dll
+C:\Project\RentApplication\DBHandler\obj\Release\netcoreapp3.1\DBHandler.pdb
+C:\Project\RentApplication\DBHandler\obj\Release\netcoreapp3.1\DBHandler.genruntimeconfig.cache

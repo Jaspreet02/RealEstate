@@ -7,6 +7,7 @@ using DBHandler;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace RealEstate
 {
@@ -18,10 +19,10 @@ namespace RealEstate
             _propertyRepository = propertyRepository;
         }
 
-        [HttpGet("GetAllWithImages/{typeId:int}/{cityId:int}/{prize:decimal}/{pageNumber:int}/{pageSize:int}/{sortField}/{sortOrder}")]
-        public async Task<IPageResult<Property>> GetAllWithImages(int typeId, int cityId,decimal prize,int pageNumber, int pageSize, string sortField, string sortOrder)
+        [HttpGet("GetAllWithImages/{typeId:int}/{cityId:int}/{intersection}/{pageNumber:int}/{pageSize:int}/{sortField}/{sortOrder}")]
+        public async Task<IPageResult<Property>> GetAllWithImages(int typeId, int cityId, string intersection, int pageNumber, int pageSize, string sortField, string sortOrder, [FromQuery(Name = "rent")] int[] rent)
         {
-            Expression<Func<Property, bool>> predicate = x => (typeId > -1 ? x.TypeId == typeId : true) &&( cityId > 0 ? x.Address.CityId == cityId : true) && (x.Prize <= prize);
+            Expression<Func<Property, bool>> predicate = x => (typeId > -1 ? x.TypeId == typeId : true) && (cityId > 0 ? x.Address.CityId == cityId : true) && (string.IsNullOrEmpty(intersection) ? true : x.Address.Intersection.Contains(intersection.Trim())) && (x.Rent >= rent[0] ? x.Rent <= rent[1] : false);
             return await CreatePageResult<Property>(_propertyRepository.GetAllWithImages(predicate).OrderBy(sortField + " " + sortOrder), pageNumber, pageSize, false);
         }
     }

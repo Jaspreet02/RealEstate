@@ -41,7 +41,7 @@ export class UserComponent implements OnInit {
   }
 
   onSelect(): void {
-    this.router.navigate(['/' + localStorage.getItem('role') + '/user/' + this.selectedUser.Id]);
+    this.router.navigate(['/' + localStorage.getItem('role') + '/user/' + this.selectedUser.id]);
   }
 
   getUsers(): void {

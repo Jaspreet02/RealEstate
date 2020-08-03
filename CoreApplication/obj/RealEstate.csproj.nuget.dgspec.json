@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\projects\\RealEstate\\CoreApplication\\RealEstate.csproj": {}
+    "C:\\Project\\RentApplication\\CoreApplication\\RealEstate.csproj": {}
   },
   "projects": {
-    "E:\\projects\\RealEstate\\CoreApplication\\RealEstate.csproj": {
+    "C:\\Project\\RentApplication\\CoreApplication\\RealEstate.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\projects\\RealEstate\\CoreApplication\\RealEstate.csproj",
+        "projectUniqueName": "C:\\Project\\RentApplication\\CoreApplication\\RealEstate.csproj",
         "projectName": "RealEstate",
-        "projectPath": "E:\\projects\\RealEstate\\CoreApplication\\RealEstate.csproj",
-        "packagesPath": "C:\\Users\\Jaspreet\\.nuget\\packages\\",
-        "outputPath": "E:\\projects\\RealEstate\\CoreApplication\\obj\\",
+        "projectPath": "C:\\Project\\RentApplication\\CoreApplication\\RealEstate.csproj",
+        "packagesPath": "C:\\Users\\kgurd\\.nuget\\packages\\",
+        "outputPath": "C:\\Project\\RentApplication\\CoreApplication\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Jaspreet\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kgurd\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -30,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "E:\\projects\\RealEstate\\DBHandler\\DBHandler.csproj": {
-                "projectPath": "E:\\projects\\RealEstate\\DBHandler\\DBHandler.csproj"
+              "C:\\Project\\RentApplication\\DBHandler\\DBHandler.csproj": {
+                "projectPath": "C:\\Project\\RentApplication\\DBHandler\\DBHandler.csproj"
               }
             }
           }
@@ -98,24 +95,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\projects\\RealEstate\\DBHandler\\DBHandler.csproj": {
+    "C:\\Project\\RentApplication\\DBHandler\\DBHandler.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\projects\\RealEstate\\DBHandler\\DBHandler.csproj",
+        "projectUniqueName": "C:\\Project\\RentApplication\\DBHandler\\DBHandler.csproj",
         "projectName": "DBHandler",
-        "projectPath": "E:\\projects\\RealEstate\\DBHandler\\DBHandler.csproj",
-        "packagesPath": "C:\\Users\\Jaspreet\\.nuget\\packages\\",
-        "outputPath": "E:\\projects\\RealEstate\\DBHandler\\obj\\",
+        "projectPath": "C:\\Project\\RentApplication\\DBHandler\\DBHandler.csproj",
+        "packagesPath": "C:\\Users\\kgurd\\.nuget\\packages\\",
+        "outputPath": "C:\\Project\\RentApplication\\DBHandler\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Jaspreet\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kgurd\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -177,7 +171,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

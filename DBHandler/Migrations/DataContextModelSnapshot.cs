@@ -32,11 +32,14 @@ namespace DBHandler.Migrations
                     b.Property<DateTimeOffset>("CreatedAt")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<int>("HouseNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("Intersection")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTimeOffset>("ModifiedAt")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
 
                     b.Property<string>("PostalCode")
                         .HasColumnType("nvarchar(max)");
@@ -138,7 +141,7 @@ namespace DBHandler.Migrations
                     b.Property<DateTimeOffset>("ModifiedAt")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<decimal>("Prize")
+                    b.Property<decimal>("Rent")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Room")
@@ -204,7 +207,7 @@ namespace DBHandler.Migrations
                     b.Property<DateTimeOffset>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetimeoffset")
-                        .HasDefaultValue(new DateTimeOffset(new DateTime(2020, 6, 10, 15, 5, 46, 839, DateTimeKind.Unspecified).AddTicks(2216), new TimeSpan(0, -4, 0, 0, 0)));
+                        .HasDefaultValue(new DateTimeOffset(new DateTime(2020, 7, 8, 19, 52, 20, 97, DateTimeKind.Unspecified).AddTicks(6442), new TimeSpan(0, -4, 0, 0, 0)));
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -212,7 +215,7 @@ namespace DBHandler.Migrations
                     b.Property<DateTimeOffset>("ModifiedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetimeoffset")
-                        .HasDefaultValue(new DateTimeOffset(new DateTime(2020, 6, 10, 15, 5, 46, 839, DateTimeKind.Unspecified).AddTicks(2216), new TimeSpan(0, -4, 0, 0, 0)));
+                        .HasDefaultValue(new DateTimeOffset(new DateTime(2020, 7, 8, 19, 52, 20, 97, DateTimeKind.Unspecified).AddTicks(6442), new TimeSpan(0, -4, 0, 0, 0)));
 
                     b.Property<string>("Name")
                         .IsRequired()

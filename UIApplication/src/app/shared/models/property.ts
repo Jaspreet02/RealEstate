@@ -1,3 +1,6 @@
+import { Address } from "./address";
+import { User } from "./user";
+
 export class Property
 {
     propertyId: number;
@@ -5,5 +8,9 @@ export class Property
     addressId : number;
     typeId : number;
     userId : number;
-    status:boolean
+    status:boolean;
+    rent:number;
+    room:number;
+    address:Address;
+    user: User;
 }

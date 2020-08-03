@@ -1,5 +1,5 @@
 {
-  "$schema": "./node_modules/@angular-devkit/core/src/workspace/workspace-schema.json",
+  "$schema": "./node_modules/@angular-devkit/core/src/experimental/workspace/workspace-schema.json",
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -30,6 +30,7 @@
             "styles": [
               "src/styles.css",
               "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
               "node_modules/primeng/resources/primeng.css",
               "node_modules/quill/dist/quill.core.css",
               "node_modules/quill/dist/quill.snow.css",
@@ -89,7 +90,7 @@
             "styles": [
               "src/styles.css",
               "node_modules/font-awesome/css/font-awesome.css",
-              "node_modules/primeng/resources/themes/omega/theme.css",
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
               "node_modules/primeng/resources/primeng.css",
               "node_modules/quill/dist/quill.core.css",
               "node_modules/quill/dist/quill.snow.css"
@@ -153,7 +154,7 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
-      "styleext": "css"
+      "style": "css"
     },
     "@schematics/angular:directive": {
       "prefix": "app"

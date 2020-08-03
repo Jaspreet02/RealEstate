@@ -68,17 +68,17 @@ export class UserDetailComponent implements OnInit {
     this.userService.getUser(this.userId)
       .subscribe(x => {
         this.selectedUser = x;
-        this.gender = this.genders.find(g => g.Value == this.selectedUser.Gender);
+        this.gender = this.genders.find(g => g.Value == this.selectedUser.gender);
       });
   }
 
   save() {
     if (this.newUser) {
       const role = this.roles[this.roles.indexOf(localStorage.getItem('role')) + 1];
-      this.selectedUser.Gender = this.gender.Value;
+      this.selectedUser.gender = this.gender.Value;
       this.userService.addUser(this.selectedUser, role).subscribe(() => { this.selectedUser = null; this.router.navigate(['/' + localStorage.getItem('role') + '/users']); });
     } else {
-      this.selectedUser.Gender = this.gender.Value;
+      this.selectedUser.gender = this.gender.Value;
       this.userService.updateUser(this.selectedUser).subscribe(() => { this.selectedUser = null; this.router.navigate(['/' + localStorage.getItem('role') + '/users']); });
     }
   }

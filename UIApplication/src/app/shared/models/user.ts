@@ -1,9 +1,9 @@
 export  class User {
-    Id: string;
-    FirstName: string;
-    LastName: string;
-    Gender: string;
-    Status: boolean;
-    PhoneNumber: number;
-    Email: string;
+    id: string;
+    firstName: string;
+    lastName: string;
+    gender: string;
+    status: boolean;
+    phoneNumber: number;
+    email: string;
 }

@@ -32,11 +32,13 @@ export class DashboardComponent implements OnInit {
 
   sortField: string = 'CreatedAt';
 
+  intersection : string = '' ;
+
   sortOrder: number = -1;
 
   pageNumber: number = 0;
 
-  pageSize: number = 5;
+  pageSize: number = 12;
 
   states: State[];
 
@@ -46,7 +48,9 @@ export class DashboardComponent implements OnInit {
 
   groupedCities: SelectItemGroup[];
 
-  yearFilter : number;
+  rentValues: number[] = [0, 100];
+
+  yearTimeout: any;
 
   constructor(private router: Router, private propertyService: PropertyService, private cityService: CityService, private stateService: StateService, private masterService: MasterService) {
   }
@@ -58,7 +62,7 @@ export class DashboardComponent implements OnInit {
       .subscribe(x => {
         this.states = x.result;
         this.cityService
-          .getCities(this.pageNumber, this.pageSize, this.sortField,'desc')
+          .getCities(this.pageNumber, this.pageSize, this.sortField, 'desc')
           .subscribe(x => { this.cities = x.result; this.BindDropdown() });
       });
 
@@ -72,7 +76,7 @@ export class DashboardComponent implements OnInit {
 
   getTypes(): void {
     this.types = [];
-    this.types.push({ label: "All", value: "-1" });
+    this.types.push({ label: "Type (all)", value: "-1" });
     this.masterService.getTypes().subscribe(x => {
       for (let index = 0; index < x.length; index++) {
         const element = x[index];
@@ -83,8 +87,15 @@ export class DashboardComponent implements OnInit {
 
   getProperties(): void {
     this.loading = true;
+    let search ;
+    if(!this.intersection || this.intersection == undefined || this.intersection == "" || this.intersection.length == 0){
+      search = ' ';
+    }
+    else{
+      search = this.intersection;
+    }
     this.propertyService
-      .getProperties(parseInt(this.type),this.selectedCity, 1000.00 , this.pageNumber, this.pageSize, this.sortField, this.sortOrder == 1 ? 'asc' : 'desc')
+      .getProperties(parseInt(this.type), this.selectedCity,search, this.rentValues, this.pageNumber, this.pageSize, this.sortField, this.sortOrder == 1 ? 'asc' : 'desc')
       .subscribe(x => (this.properties = x.result, this._total = x.count, this.loading = false));
   }
 
@@ -114,8 +125,28 @@ export class DashboardComponent implements OnInit {
     this.groupedCities = result;
   }
 
+  onYearChange(event) {
+    if (this.yearTimeout) {
+      clearTimeout(this.yearTimeout);
+    }
+
+    this.yearTimeout = setTimeout(() => {
+      this.getProperties();
+    }, 250);
+  }
+
   onSortChange(event) {
     this.getProperties();
+  }
+
+  onSearch(event) {
+    if (this.yearTimeout) {
+      clearTimeout(this.yearTimeout);
+    }
+
+    this.yearTimeout = setTimeout(() => {
+       this.getProperties();
+    }, 500);
   }
 
   defaultUrl(event) {
