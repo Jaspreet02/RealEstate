@@ -54,6 +54,8 @@ namespace RealEstate
 
             services.AddScoped<StateRepository>();
 
+            services.AddScoped<AddressRepository>();
+
             services.AddScoped<IUserClaimsPrincipalFactory<User>, AdditionalUserClaimsPrincipalFactory>();
 
             services.AddSingleton<IAuthorizationHandler, IsAdminHandler>();

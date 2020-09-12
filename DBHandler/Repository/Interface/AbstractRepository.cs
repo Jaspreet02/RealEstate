@@ -56,6 +56,7 @@ namespace DBHandler
 
         public async Task<TEntity> Update(TEntity entity)
         {
+
             context.Entry(entity).State = EntityState.Modified;
             await context.SaveChangesAsync();
             return entity;

@@ -25,5 +25,11 @@ namespace RealEstate
             Expression<Func<Property, bool>> predicate = x => (typeId > -1 ? x.TypeId == typeId : true) && (cityId > 0 ? x.Address.CityId == cityId : true) && (string.IsNullOrEmpty(intersection) ? true : x.Address.Intersection.Contains(intersection.Trim())) && (x.Rent >= rent[0] ? x.Rent <= rent[1] : false);
             return await CreatePageResult<Property>(_propertyRepository.GetAllWithImages(predicate).OrderBy(sortField + " " + sortOrder), pageNumber, pageSize, false);
         }
+
+        [HttpGet("GetWithAddress/{id}")]
+        public Property GetWithAddress(int id)
+        {
+            return _propertyRepository.GetwithAddress(id);
+        }
     }
 }

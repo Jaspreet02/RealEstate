@@ -8,6 +8,7 @@ namespace DBHandler
     {
         public DataContext(DbContextOptions<DataContext> options) : base (options)
         {
+            this.ChangeTracker.AutoDetectChangesEnabled = false;
         }
 
         public DbSet<Type> Type { get; set; }

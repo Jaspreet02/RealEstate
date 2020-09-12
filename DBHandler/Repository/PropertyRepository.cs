@@ -18,5 +18,10 @@ namespace DBHandler
         {
             return context.Property.Include("User").Include("Address.City").Include("Images").Where(predicate);
         }
+
+        public Property GetwithAddress (int id)
+        {
+            return context.Property.Include("Address").SingleOrDefault(x => x.PropertyId == id);
+        }
     }
 }

@@ -1,5 +1,5 @@
 <p-dataView #dv [value]="properties" [paginator]="true" paginatorPosition="both" filterBy="brand" [loading]="loading"
-    [sortOrder]="sortOrder" [sortField]="sortField" [rows]="12" [lazy]="true" (onLazyLoad)="loadData($event)"
+    [sortOrder]="sortOrder" [sortField]="sortField" [rows]="pageSize" [lazy]="true" (onLazyLoad)="loadData($event)"
     [totalRecords]="_total">
     <p-header> 
         <div class="ui-helper-clearfix">
@@ -38,6 +38,11 @@
             </div>
         </div>
     </p-header>
+    <p-footer>
+        <div class="ui-helper-clearfix" style="width:100%">
+          <button type="button" pButton icon="pi pi-add" style="float:left" (click)="addProperty()" label="Add"></button>
+        </div>
+      </p-footer>
     <ng-template let-item pTemplate="listItem">
         <div class="ui-g-12">
             <div class="car-details">

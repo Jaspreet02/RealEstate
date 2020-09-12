@@ -57,7 +57,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.loading = true;
-
     this.stateService.getStates(this.pageNumber, this.pageSize, this.sortField, 'desc')
       .subscribe(x => {
         this.states = x.result;
@@ -65,13 +64,12 @@ export class DashboardComponent implements OnInit {
           .getCities(this.pageNumber, this.pageSize, this.sortField, 'desc')
           .subscribe(x => { this.cities = x.result; this.BindDropdown() });
       });
-
     this.getTypes();
   }
 
   selectProperty(event: Event, item: Property) {
-    this.selectedProperty = item;
-    event.preventDefault();
+    this.router.navigate(['/landlord/property/' + item.propertyId]);
+    // event.preventDefault();
   }
 
   getTypes(): void {
@@ -147,6 +145,11 @@ export class DashboardComponent implements OnInit {
     this.yearTimeout = setTimeout(() => {
        this.getProperties();
     }, 500);
+  }
+
+  addProperty() {
+    // this.router.navigate(['/' + localStorage.getItem('role') + '/application']);
+    this.router.navigate(['/landlord/property']);
   }
 
   defaultUrl(event) {

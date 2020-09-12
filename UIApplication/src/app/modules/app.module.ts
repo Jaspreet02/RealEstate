@@ -20,6 +20,7 @@ import {GalleriaModule} from 'primeng/galleria';
 import {CheckboxModule} from 'primeng/checkbox';
 import {DataViewModule} from 'primeng/dataview';
 import {InputNumberModule} from 'primeng/inputNumber';
+import {MessageModule} from 'primeng/message';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
@@ -36,11 +37,12 @@ import { PropertyService } from '../core/services/property.service';
 import { CityService } from '../core/services/city.service';
 import { StateService } from '../core/services/state.service';
 import { MasterService } from '../core/services/master.service';
+import { AddressService } from 'app/core/services/address.service';
 
 import { AppHeaderComponent } from '../core/header/app-header/app-header.component';
-import { AdminHeaderComponent } from '../core/header/admin-header/admin-header.component';
 import { UserHeaderComponent } from '../core/header/user-header/user-header.component';
 import { SuperHeaderComponent } from '../core/header/super-header/super-header.component';
+import { LandlordHeaderComponent } from 'app/core/header/landlord-header/landlord-header.component';
 
 import { RoutingModule } from './routing.component';
 import { AuthGuard } from '../core/guards/auth.guard';
@@ -56,7 +58,7 @@ import { AuthInterceptor } from '../core/guards/auth.interceptor';
     OldLoginComponent,
     DashboardComponent,
     AppHeaderComponent,
-    AdminHeaderComponent,
+    LandlordHeaderComponent,
     UserHeaderComponent,
     SuperHeaderComponent,
     PropertyComponent
@@ -84,9 +86,10 @@ import { AuthInterceptor } from '../core/guards/auth.interceptor';
     GalleriaModule,
     CheckboxModule,
     DataViewModule,
-    InputNumberModule
+    InputNumberModule,
+    MessageModule
   ],
-  providers: [UserService, MasterService,AccountService,PropertyService,CityService,StateService,
+  providers: [UserService, MasterService,AccountService,PropertyService,CityService,StateService,AddressService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
