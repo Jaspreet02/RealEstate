@@ -89,7 +89,7 @@ import { AuthInterceptor } from '../core/guards/auth.interceptor';
     InputNumberModule,
     MessageModule
   ],
-  providers: [UserService, MasterService,AccountService,PropertyService,CityService,StateService,AddressService,
+  providers: [UserService, MasterService,AccountService,PropertyService,CityService,StateService,AddressService,AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

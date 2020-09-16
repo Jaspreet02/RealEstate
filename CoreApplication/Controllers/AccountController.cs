@@ -52,17 +52,17 @@ namespace RealEstate
                 var result = _signInManager.PasswordSignInAsync(user, model.Password, false, false).Result;
                 if (result.Succeeded)
                 {
-                 string role = _userManager.GetRolesAsync(user).Result[0];
+                 string userRole = _userManager.GetRolesAsync(user).Result[0];
                     //Authentication successful, Issue Token with user credentials 
                     //Provide the security key which is given in 
                     //Startup.cs ConfigureServices() method 
                     var key = Encoding.ASCII.GetBytes
                     (Configuration.GetSection("MySettings").GetSection("SecretKey").Value);
-                    //Generate Token for user 
-                    var JWToken = new JwtSecurityToken(
+                //Generate Token for user 
+                var JWToken = new JwtSecurityToken(
                         issuer: Configuration.GetSection("MySettings").GetSection("ValidIssuer").Value,
                         audience: Configuration.GetSection("MySettings").GetSection("ValidAudience").Value,
-                        claims: GetUserClaims(user, role),
+                        claims: null, //GetUserClaims(user, role),
                         notBefore: new DateTimeOffset(DateTime.Now).DateTime,
                         expires: new DateTimeOffset(DateTime.Now.AddDays(1)).DateTime,
                         //Using HS256 Algorithm to encrypt Token  
@@ -72,8 +72,8 @@ namespace RealEstate
                     var token = new JwtSecurityTokenHandler().WriteToken(JWToken);
 
                     //Save token in session object
-                    HttpContext.Session.SetString("JWToken", token);
-                    return Ok(role);
+                    //HttpContext.Session.SetString("JWToken", token);
+                    return Ok(new { access_token = token,role=userRole });
                 }
                 else
                 {

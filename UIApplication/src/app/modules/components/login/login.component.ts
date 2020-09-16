@@ -25,13 +25,12 @@ export class LoginComponent implements OnInit {
   OnSubmit(userName,password){  
     this.isLoginError = false;  
      this.accountService.userAuthentication(userName,password).subscribe((data : any)=>{
-      // localStorage.setItem('userToken',data.access_token);
-      localStorage.setItem('role',data);
+      localStorage.setItem('userToken',data.access_token);
+      localStorage.setItem('role',data.role);
      // this.router.navigate(['/' + data.role + '/dashboard']);
      this.router.navigate(['/dashboard']);
     },
     (err : HttpErrorResponse)=>{
-      console.log(err);
       this.errorMessage = err.error;
       this.isLoginError = true;
     });

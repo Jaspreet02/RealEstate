@@ -21,8 +21,8 @@ export class AccountService {
 
   userAuthentication(userName: string, password: string):Observable<any>  {
     var data = {"Username" : userName, "Password" : password};
-    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded', 'No-Auth':'True'});
-    return this.http.post('http://127.0.0.1:8004/Account/Login', data, {responseType : 'text'});
+    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'No-Auth':'True'});
+    return this.http.post( this.userUrl + '/Login', data, { headers: reqHeader});
   }
 
   private serializeObj(obj) {

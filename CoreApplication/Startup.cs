@@ -183,15 +183,16 @@ namespace RealEstate
             //Add JWToken to all incoming HTTP Request Header
             app.Use(async (context, next) =>
             {
-                var JWToken = context.Session.GetString("JWToken");
-                if (!string.IsNullOrEmpty(JWToken))
-                {
-                    context.Request.Headers.Add("Authorization", "Bearer " + JWToken);
-                }
+                //Save token in session object
+                //var JWToken = context.Session.GetString("JWToken");
+                //if (!string.IsNullOrEmpty(JWToken))
+                //{
+                //    context.Request.Headers.Add("Authorization", "Bearer " + JWToken);
+                //}
                 await next();
             });
-            //Add JWToken Authentication service
 
+            //Add JWToken Authentication service
             app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthentication();
