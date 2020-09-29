@@ -41,7 +41,7 @@ import { AddressService } from 'app/core/services/address.service';
 
 import { AppHeaderComponent } from '../core/header/app-header/app-header.component';
 import { UserHeaderComponent } from '../core/header/user-header/user-header.component';
-import { SuperHeaderComponent } from '../core/header/super-header/super-header.component';
+import { AdminHeaderComponent } from '../core/header/admin-header/admin-header.component';
 import { LandlordHeaderComponent } from 'app/core/header/landlord-header/landlord-header.component';
 
 import { RoutingModule } from './routing.component';
@@ -60,7 +60,7 @@ import { AuthInterceptor } from '../core/guards/auth.interceptor';
     AppHeaderComponent,
     LandlordHeaderComponent,
     UserHeaderComponent,
-    SuperHeaderComponent,
+    AdminHeaderComponent,
     PropertyComponent
   ],
   imports: [

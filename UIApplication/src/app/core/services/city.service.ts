@@ -19,8 +19,8 @@ export class CityService {
   constructor( private http: HttpClient) {}
 
   getCities(pageNumber: number, pageSize: number,sortField: string, sortOrder: string): Observable<PagedResponse<City>> {
-   // return of(Users);
-   return this.http.get<PagedResponse<City>>(this.Url + '/' + pageNumber + '/' + pageSize + '/' + sortField + '/' + sortOrder);
+    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'No-Auth':'True'});
+    return this.http.get<PagedResponse<City>>(this.Url + '/' + pageNumber + '/' + pageSize + '/' + sortField + '/' + sortOrder, {headers : reqHeader});
   // return this.http.get<PagedResponse<Property>>(this.Url );
   }
 

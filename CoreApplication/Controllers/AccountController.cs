@@ -64,7 +64,7 @@ namespace RealEstate
                         audience: Configuration.GetSection("MySettings").GetSection("ValidAudience").Value,
                         claims: null, //GetUserClaims(user, role),
                         notBefore: new DateTimeOffset(DateTime.Now).DateTime,
-                        expires: new DateTimeOffset(DateTime.Now.AddDays(1)).DateTime,
+                        expires: new DateTimeOffset(DateTime.Now.AddHours(1)).DateTime,
                         //Using HS256 Algorithm to encrypt Token  
                         signingCredentials: new SigningCredentials
                         (new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

@@ -19,9 +19,8 @@ export class PropertyService {
   constructor(private http: HttpClient) { }
 
   getProperties(typeId: number, cityId: number, intersection: string, prize: number[], pageNumber: number, pageSize: number, sortField: string, sortOrder: string): Observable<PagedResponse<Property>> {
-    // return of(Users);
-    return this.http.get<PagedResponse<Property>>(this.Url + '/GetAllWithImages/' + typeId + '/' + cityId + '/' + intersection + '/' + pageNumber + '/' + pageSize + '/' + sortField + '/' + sortOrder + '?rent=' + prize[0] * 50 + '&rent=' + prize[1] * 50);
-    // return this.http.get<PagedResponse<Property>>(this.Url );
+    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'No-Auth':'True'});
+    return this.http.get<PagedResponse<Property>>(this.Url + '/GetAllWithImages/' + typeId + '/' + cityId + '/' + intersection + '/' + pageNumber + '/' + pageSize + '/' + sortField + '/' + sortOrder + '?rent=' + prize[0] * 50 + '&rent=' + prize[1] * 50, { headers: reqHeader});
   }
 
   /** POST: add a new user to the server */

@@ -8,6 +8,7 @@ import 'rxjs/add/observable/throw';
 import { ViewEncapsulation } from '@angular/core';
 import { UserService } from '../../../core/services/user.service';
 import { User } from '../../../shared/models/user';
+import { AccountService } from 'app/core/services/account.service';
 
 @Component({
   selector: 'app-oldlogin',
@@ -21,7 +22,7 @@ export class OldLoginComponent implements OnInit {
   selectedUser: User; 
   userform: FormGroup;
 
-  constructor(private userService : UserService,private router : Router,private fb: FormBuilder) { }
+  constructor(private accountService : AccountService,private router : Router,private fb: FormBuilder) { }
 
   ngOnInit() {    
     this.selectedUser = new User();
@@ -36,7 +37,7 @@ export class OldLoginComponent implements OnInit {
   }
 
   OnSubmit(userName,password){
-     this.userService.userAuthentication(userName,password).subscribe((data : any)=>{
+     this.accountService.userAuthentication(userName,password).subscribe((data : any)=>{
       localStorage.setItem('userToken',data.access_token);
       localStorage.setItem('role',data.role);
       this.router.navigate(['/' + data.role + '/runDetails']);

@@ -19,9 +19,8 @@ export class StateService {
   constructor( private http: HttpClient) {}
 
   getStates(pageNumber: number, pageSize: number,sortField: string, sortOrder: string): Observable<PagedResponse<State>> {
-   // return of(Users);
-   return this.http.get<PagedResponse<State>>(this.Url + '/' + pageNumber + '/' + pageSize + '/' + sortField + '/' + sortOrder);
-  // return this.http.get<PagedResponse<Property>>(this.Url );
+    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'No-Auth':'True'});
+    return this.http.get<PagedResponse<State>>(this.Url + '/' + pageNumber + '/' + pageSize + '/' + sortField + '/' + sortOrder,{headers : reqHeader});
   }
 
     /** POST: add a new user to the server */

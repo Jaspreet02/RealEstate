@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'super-header',
-  templateUrl: './super-header.component.html',
-  styleUrls: ['./super-header.component.css']
+  selector: 'admin-header',
+  templateUrl: './admin-header.component.html',
+  styleUrls: ['./admin-header.component.css']
 })
-export class SuperHeaderComponent implements OnInit {
+export class AdminHeaderComponent implements OnInit {
 
   constructor(private router : Router) { }
 

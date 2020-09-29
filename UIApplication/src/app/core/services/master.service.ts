@@ -18,8 +18,8 @@ export class MasterService {
   constructor(private http: HttpClient) { }
 
   getTypes(): Observable<any> {
-    // return of(Users);
-    return this.http.get<any>(this.MasterUrl + '/Types');
+    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'No-Auth':'True'});    
+    return this.http.get<any>(this.MasterUrl + '/Types', {headers : reqHeader});
   }
 
   getEmailTokens(): Observable<any> {

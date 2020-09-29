@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 namespace RealEstate
 {
     [ApiController]
-    [Authorize]
     [Route("api/[controller]")]
     public abstract class BaseController<TEntity, TRepository> : ControllerBase
         where TEntity : class where TRepository : IRepository<TEntity>

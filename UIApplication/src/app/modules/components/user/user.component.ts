@@ -33,7 +33,7 @@ export class UserComponent implements OnInit {
   constructor(private router: Router, private confirmationService: ConfirmationService, private userService: UserService) { }
 
   ngOnInit() {
-    this.getUsers();
+    //this.getUsers();
   }
 
   showDialogToAdd() {
@@ -45,15 +45,15 @@ export class UserComponent implements OnInit {
   }
 
   getUsers(): void {
-    this.loading = false;
     this.loading = true;
     this.userService
       .getUsers(this.pageNumber, this.pageSize, this.sortF, this.sortO == '1' ? 'asc' : 'desc')
-      .subscribe(x => (this.Users = x.Result, this._total = x.Count, this.loading = false,console.log(x.Count)));
+      .subscribe(x => (this.Users = x.result, this._total = x.count, this.loading = false));
   }
 
   paginate(event) {
-    this.pageNumber = event.page;
+    console.log(event);
+    this.pageNumber = event.first;
     this.pageSize = event.rows;
     this.getUsers();
     // event.first = Index of the first record
