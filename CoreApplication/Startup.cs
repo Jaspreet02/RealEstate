@@ -36,7 +36,7 @@ namespace RealEstate
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                                   builder =>
                                   {
-                                      builder.AllowAnyOrigin()
+                                      builder.WithOrigins("http://localhost:4200")
                                       .AllowAnyHeader().AllowAnyMethod();
                                   });
             });
@@ -212,6 +212,7 @@ namespace RealEstate
 
             IdentityResult roleResult;
             //Adding Addmin Role  
+
             var roleCheck = await RoleManager.RoleExistsAsync("Admin");
             if (!roleCheck)
             {

@@ -32,6 +32,7 @@ namespace RealEstate
             _sendEmailService = sendEmailService;
         }
 
+        [EnableCors]
         [HttpPost("[action]")]
         public async Task<IActionResult> Login(UserModel model)
         {

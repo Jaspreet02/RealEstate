@@ -14,7 +14,7 @@ namespace DBHandler
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
-        [NotMapped]
+        [NotMapped]        
         public string ConfirmPassword { get; set; }
         [Required]
         [StringLength(1)]
