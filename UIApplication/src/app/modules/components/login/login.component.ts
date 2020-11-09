@@ -27,8 +27,7 @@ export class LoginComponent implements OnInit {
      this.accountService.userAuthentication(userName,password).subscribe((data : any)=>{
       localStorage.setItem('userToken',data.access_token);
       localStorage.setItem('role',data.role);
-     // this.router.navigate(['/' + data.role + '/dashboard']);
-     this.router.navigate(['/dashboard']);
+     this.router.navigate(['/' + data.role.toLowerCase() + '/dashboard']);
     },
     (err : HttpErrorResponse)=>{
       this.errorMessage = err.error;

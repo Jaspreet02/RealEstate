@@ -1,5 +1,5 @@
 <p-table [value]="Users" [lazy]="true" (onLazyLoad)="paginate($event)" [paginator]="true" [rows]="10"
-  [totalRecords]="_total" [loading]="loading">
+  [totalRecords]="_total" [loading]="loading" [responsive]="true">
   <ng-template pTemplate="header">
     <tr>
       <th>First Name</th>

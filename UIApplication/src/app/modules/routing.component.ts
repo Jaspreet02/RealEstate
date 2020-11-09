@@ -8,13 +8,15 @@ import {AppHeaderComponent } from '../core/header/app-header/app-header.componen
 import { LoginComponent } from './components/login/login.component';
 import { PropertyComponent } from './components/Dashboard/Property.component';
 import { AdminHeaderComponent } from 'app/core/header/admin-header/admin-header.component';
+import { DashboardComponent } from './components/Dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'login', component: LoginComponent }, 
-  { path: 'dashboard', component: AppHeaderComponent },  
+  { path: 'dashboard', component: AppHeaderComponent},  
   { path: 'admin', component : AdminHeaderComponent,
-    children : [
+  children : [
+      { path: 'dashboard', component: DashboardComponent},  
       { path: 'users', component: UserComponent },
       { path: 'user/:id', component: UserDetailComponent },
       { path: 'user', component: UserDetailComponent },
@@ -22,6 +24,7 @@ const routes: Routes = [
     ]},
     { path: 'landlord', component : LandlordHeaderComponent,
       children : [
+        { path: 'dashboard', component: DashboardComponent},
         { path: 'changePassword', component: UpdatePasswordComponent },
         { path: 'property', component: PropertyComponent},
         { path: 'property/:id', component: PropertyComponent}
