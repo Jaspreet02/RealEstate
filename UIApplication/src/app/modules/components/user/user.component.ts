@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../../../shared/models/user';
 import { UserService } from '../../../core/services/user.service';
-import { ConfirmationService } from 'primeng/api';
-import { Alert } from '../../../../../node_modules/@types/selenium-webdriver';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css'],
-  providers: [ConfirmationService]
+  providers: [ConfirmationService,MessageService]
 })
 
 export class UserComponent implements OnInit {
@@ -30,7 +29,7 @@ export class UserComponent implements OnInit {
 
   loading: boolean;
 
-  constructor(private router: Router, private confirmationService: ConfirmationService, private userService: UserService) { }
+  constructor(private router: Router, private confirmationService: ConfirmationService, private userService: UserService,private messageService: MessageService) { }
 
   ngOnInit() {
     //this.getUsers();
@@ -50,6 +49,24 @@ export class UserComponent implements OnInit {
       .getUsers(this.pageNumber, this.pageSize, this.sortF, this.sortO == '1' ? 'asc' : 'desc')
       .subscribe(x => (this.Users = x.result, this._total = x.count, this.loading = false));
   }
+
+  onRowEditInit(user: User) {
+    this.selectedUser = this.Users.find(x=> x.id == user.id);
+}
+
+onRowEditSave(user: User) {
+    if (user.id != null) {
+        this.selectedUser = null;
+        this.messageService.add({severity:'success', summary: 'Success', detail:'Car is updated'});
+    }
+    else {
+        this.messageService.add({severity:'error', summary: 'Error', detail:'Year is required'});
+    }
+}
+
+onRowEditCancel(car: User, index: number) {
+     this.selectedUser = null;
+}
 
   paginate(event) {
     console.log(event);
